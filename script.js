@@ -104,7 +104,7 @@ let weatherData = [
 let daysOfWeek = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
 let monts = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 let h1 = document.querySelector('h1');
-let now = new Date(1581017787000);
+let now = new Date();
 let daysBlock = document.querySelector('.days-of-week');
 
 h1.append(now.getDate() + " " + monts[now.getMonth()] + ", " + daysOfWeek[now.getDay()]);

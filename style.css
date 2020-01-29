@@ -1,0 +1,98 @@
+body {
+  padding: 10px;
+}
+
+h1 {
+  margin-left: 40px;
+}
+
+.weather-block {
+  position: relative;
+  width: 630px;
+  padding: 10px 40px;
+  background-color: #f4f4f4;
+  padding: 50px;
+}
+
+.arrow {
+  position: absolute;
+  top: 140px;
+  padding: 0;
+  font-size: 50px;
+  line-height: 50px;
+  color: #000000;
+  display: block;
+  border: 0;
+  background-color: inherit;
+}
+
+.arrow:focus {
+  outline: none;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.prev {
+  left: 7px;
+}
+
+.next {
+  right: 7px;
+}
+
+.unavailable {
+    display: none;
+}
+
+.container {
+  width: 630px;
+  overflow: hidden;
+}
+
+.container img {
+  width: 130px;
+  height: 130px;
+}
+
+.container ul {
+  display: flex;
+  width: 9999px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: margin-left 250ms;
+  font-size: 16px;
+  text-align: center;
+}
+
+.container li{
+  background-color: #ffffff;
+  margin-right: 10px;
+  width: 150px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.overhead {
+  font-size: 12px;
+  color: #808080;
+}
+
+.title-date {
+    font-size: 18px;
+}
+
+.day-temp {
+  font-weight: bold;
+}
+
+.night-temp {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 12px;
+}

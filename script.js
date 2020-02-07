@@ -160,31 +160,24 @@ let addDayInList = function(day) {
     daysBlock.appendChild(li);
 };
 
-let dayNumber;
+let today;
 for (let i = 0; i < weatherData.length; i++) {
     let tempDate = new Date(weatherData[i].date);
     if (tempDate.getDate() == now.getDate()) {
-        dayNumber = i;
+        today = i;
     }
 }
-let start;
-let end;
-let firstDay;
-if (dayNumber >= 3) {
-    start = dayNumber - 3;
-    firstDay = 3;
+
+let lastDay;
+let daysData = weatherData.length - today + 1;
+
+if (daysData <= 4) {
+    lastDay = today + daysData;
 } else {
-    start = 0;
-    firstDay = dayNumber;
+    lastDay = today + 4;
 }
 
-if ((weatherData.length - (dayNumber + 1)) >= 3) {
-    end = dayNumber + 4;
-} else {
-    end = weatherData.length;
-}
-
-let dataForOutput = weatherData.slice(start, end);
+let dataForOutput = weatherData.slice(today, lastDay);
 
 for (let i = 0; i < dataForOutput.length; i++) {
     addDayInList(dataForOutput[i]);
@@ -194,14 +187,14 @@ let weatherBlock = document.querySelector('.weather-block');
 let list = weatherBlock.querySelector('ul');
 let listItems = weatherBlock.querySelectorAll('li');
 let width = 160;
-let position = firstDay * -width;
+let position = 0;
 list.style.marginLeft = position + 'px';
 let prev = weatherBlock.querySelector('.prev');
 let next = weatherBlock.querySelector('.next');
-next.classList.add("unavailable");
-if (dayNumber == 0) {
-    prev.classList.add("unavailable");
+if (listItems.length < 5) {
+    next.classList.add("unavailable");
 }
+prev.classList.add("unavailable");
 
 weatherBlock.querySelector('.prev').onclick = function() {
     position += width;

@@ -2,17 +2,17 @@ let weatherData = [
   {
     date: 1580240187000,
     temperature: {
-      night: -6,
-      day: -10,
+      night: -7,
+      day: -14,
     },
-    cloudiness: 'Ясно',
-    snow: false,
+    cloudiness: 'Облачно',
+    snow: true,
     rain: false,
   },
   {
     date: 1580326587000,
     temperature: {
-      night: -8,
+      night: -9,
       day: -14,
     },
     cloudiness: 'Облачно',
@@ -22,8 +22,8 @@ let weatherData = [
   {
     date: 1580412987000,
     temperature: {
-      night: 0,
-      day: -9,
+      night: -14,
+      day: -19,
     },
     cloudiness: 'Облачно',
     snow: true,
@@ -32,48 +32,48 @@ let weatherData = [
   {
     date: 1580499387000,
     temperature: {
-      night: -1,
-      day: -3,
-    },
-    cloudiness: 'Облачно',
-    snow: false,
-    rain: false,
-  },
-  {
-    date: 1580585787000,
-    temperature: {
-      night: -3,
-      day: -5,
+      night: -5,
+      day: -16,
     },
     cloudiness: 'Облачно',
     snow: true,
     rain: false,
   },
   {
+    date: 1580585787000,
+    temperature: {
+      night: -5,
+      day: -9,
+    },
+    cloudiness: 'Солнечно',
+    snow: false,
+    rain: false,
+  },
+  {
     date: 1580672187000,
     temperature: {
-      night: -3,
-      day: -4,
+      night: -5,
+      day: -10,
     },
-    cloudiness: 'Облачно',
+    cloudiness: 'Солнечно',
     snow: false,
     rain: false,
   },
   {
     date: 1580758587000,
     temperature: {
-      night: +1,
-      day: -2,
+      night: -5,
+      day: -8,
     },
     cloudiness: 'Облачно',
-    snow: false,
-    rain: true,
+    snow: true,
+    rain: false,
   },
   {
     date: 1580844987000,
     temperature: {
-      night: 0,
-      day: -2,
+      night: -5,
+      day: -8,
     },
     cloudiness: 'Облачно',
     snow: true,
@@ -82,18 +82,18 @@ let weatherData = [
   {
     date: 1580931387000,
     temperature: {
-      night: -2,
-      day: -5,
+      night: 0,
+      day: -6,
     },
-    cloudiness: 'Солнечно',
+    cloudiness: 'Облачно',
     snow: false,
-    rain: false,
+    rain: true,
   },
   {
     date: 1581017787000,
     temperature: {
-      night: -6,
-      day: -9,
+      night: -1,
+      day: -5,
     },
     cloudiness: 'Облачно',
     snow: false,

@@ -1,6 +1,6 @@
 let weatherData = [
   {
-    date: 1580240187000,
+    date: 1581034541000,
     temperature: {
       night: -7,
       day: -14,
@@ -10,7 +10,7 @@ let weatherData = [
     rain: false,
   },
   {
-    date: 1580326587000,
+    date: 1581120941000,
     temperature: {
       night: -9,
       day: -14,
@@ -20,7 +20,7 @@ let weatherData = [
     rain: false,
   },
   {
-    date: 1580412987000,
+    date: 1581207341000,
     temperature: {
       night: -14,
       day: -19,
@@ -30,7 +30,7 @@ let weatherData = [
     rain: false,
   },
   {
-    date: 1580499387000,
+    date: 1581293741000,
     temperature: {
       night: -5,
       day: -16,
@@ -40,7 +40,7 @@ let weatherData = [
     rain: false,
   },
   {
-    date: 1580585787000,
+    date: 1581380141000,
     temperature: {
       night: -5,
       day: -9,
@@ -50,7 +50,7 @@ let weatherData = [
     rain: false,
   },
   {
-    date: 1580672187000,
+    date: 1581466541000,
     temperature: {
       night: -5,
       day: -10,
@@ -60,7 +60,7 @@ let weatherData = [
     rain: false,
   },
   {
-    date: 1580758587000,
+    date: 1581552941000,
     temperature: {
       night: -5,
       day: -8,
@@ -70,7 +70,7 @@ let weatherData = [
     rain: false,
   },
   {
-    date: 1580844987000,
+    date: 1581639341000,
     temperature: {
       night: -5,
       day: -8,
@@ -80,7 +80,7 @@ let weatherData = [
     rain: false,
   },
   {
-    date: 1580931387000,
+    date: 1581725741000,
     temperature: {
       night: 0,
       day: -6,
@@ -90,7 +90,7 @@ let weatherData = [
     rain: true,
   },
   {
-    date: 1581017787000,
+    date: 1581812141000,
     temperature: {
       night: -1,
       day: -5,

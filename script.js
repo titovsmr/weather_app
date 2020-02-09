@@ -1,4 +1,4 @@
-let weatherData = [
+const WEATHER_DATA = [
   {
     date: 1581034541000,
     temperature: {
@@ -101,27 +101,27 @@ let weatherData = [
   },
 ];
 
-let daysOfWeek = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
-let monts = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
-let h1 = document.querySelector('h1');
-let now = new Date();
-let daysBlock = document.querySelector('.days-of-week');
+const DAYS_OF_WEEK = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+const MONTS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+const H1 = document.querySelector('h1');
+const NOW = new Date();
+const DAYS_BLOCK = document.querySelector('.days-of-week');
 
-h1.append(now.getDate() + " " + monts[now.getMonth()] + ", " + daysOfWeek[now.getDay()]);
+H1.append(NOW.getDate() + " " + MONTS[NOW.getMonth()] + ", " + DAYS_OF_WEEK[NOW.getDay()]);
 
-let addDayInList = function(day) {
+function addDayInList(day) {
     let li = document.createElement('li');
     let date = new Date(day.date);
     let overhead = document.createElement('div');
     overhead.classList.add('overhead');
-    if (now.getDate() == date.getDate()) {
+    if (NOW.getDate() == date.getDate()) {
         overhead.textContent = 'сегодня';
     } else {
-        overhead.textContent = daysOfWeek[date.getDay()];
+        overhead.textContent = DAYS_OF_WEEK[date.getDay()];
     }
     li.appendChild(overhead);
     let title = document.createElement('div');
-    title.textContent = date.getDate() + " " + monts[date.getMonth()];
+    title.textContent = date.getDate() + " " + MONTS[date.getMonth()];
     title.classList.add('title-date');
     li.appendChild(title);
     let image = document.createElement('img');
@@ -157,68 +157,69 @@ let addDayInList = function(day) {
     description.classList.add('description');
     description.innerHTML = cloudy + "," + "</br>" + fall;
     li.appendChild(description);
-    daysBlock.appendChild(li);
-};
+    DAYS_BLOCK.appendChild(li);
+}
 
-let today;
-for (let i = 0; i < weatherData.length; i++) {
-    let tempDate = new Date(weatherData[i].date);
-    if (tempDate.getDate() == now.getDate()) {
-        today = i;
+function createDisplayData(numberOfDisplayedDays) {
+    let today;
+    for (let i = 0; i < WEATHER_DATA.length; i++) {
+        let tempDate = new Date(WEATHER_DATA[i].date);
+        if (tempDate.getDate() == NOW.getDate()) {
+            today = i;
+        }
     }
+    let lastDay;
+    let daysData = WEATHER_DATA.length - today + 1;
+    if (daysData <= numberOfDisplayedDays) {
+        lastDay = today + daysData;
+    } else {
+        lastDay = today + numberOfDisplayedDays;
+    }
+    let dataForOutput = WEATHER_DATA.slice(today, lastDay);
+    for (let i = 0; i < dataForOutput.length; i++) {
+        addDayInList(dataForOutput[i]);
+    }
+    return dataForOutput.length;
 }
 
-let lastDay;
-let daysData = weatherData.length - today + 1;
+const COUNT_OF_DAYS = createDisplayData(5);
 
-if (daysData <= 4) {
-    lastDay = today + daysData;
-} else {
-    lastDay = today + 4;
+const WEATHER_BLOCK = document.querySelector('.weather-block');
+const LIST = WEATHER_BLOCK.querySelector('ul');
+const LIST_ITEMS = WEATHER_BLOCK.querySelectorAll('li');
+const WIDTH = 160;
+const PREV = WEATHER_BLOCK.querySelector('.prev');
+const NEXT = WEATHER_BLOCK.querySelector('.next');
+if (LIST_ITEMS.length < 5) {
+    NEXT.classList.add("unavailable");
 }
-
-let dataForOutput = weatherData.slice(today, lastDay);
-
-for (let i = 0; i < dataForOutput.length; i++) {
-    addDayInList(dataForOutput[i]);
-}
-
-let weatherBlock = document.querySelector('.weather-block');
-let list = weatherBlock.querySelector('ul');
-let listItems = weatherBlock.querySelectorAll('li');
-let width = 160;
+PREV.classList.add("unavailable");
 let position = 0;
-list.style.marginLeft = position + 'px';
-let prev = weatherBlock.querySelector('.prev');
-let next = weatherBlock.querySelector('.next');
-if (listItems.length < 5) {
-    next.classList.add("unavailable");
-}
-prev.classList.add("unavailable");
+LIST.style.marginLeft = position + 'px';
 
-weatherBlock.querySelector('.prev').onclick = function() {
-    position += width;
+PREV.onclick = function() {
+    position += WIDTH;
     if (position == 0) {
-        prev.classList.add("unavailable");
+        PREV.classList.add("unavailable");
     }
     position = Math.min(position, 0);
-    list.style.marginLeft = position + 'px';
-    if (!(dataForOutput.length < 5)) {
-        next.classList.remove("unavailable");
+    LIST.style.marginLeft = position + 'px';
+    if (!(COUNT_OF_DAYS < 5)) {
+        NEXT.classList.remove("unavailable");
     }
-    if (position <= -width * (listItems.length - 4)) {
-        next.classList.add("unavailable");
+    if (position <= -WIDTH * (LIST_ITEMS.length - 4)) {
+        NEXT.classList.add("unavailable");
     }
 };
 
-weatherBlock.querySelector('.next').onclick = function() {
-    position -= width;
-    if (position == (-width * (listItems.length - 4))) {
-        next.classList.add("unavailable");
+NEXT.onclick = function() {
+    position -= WIDTH;
+    if (position == (-WIDTH * (LIST_ITEMS.length - 4))) {
+        NEXT.classList.add("unavailable");
     }
-    position = Math.max(position, -width * (listItems.length - 4));
-    list.style.marginLeft = position + 'px';
-    if (!(dataForOutput.length < 5)) {
-        prev.classList.remove("unavailable");
+    position = Math.max(position, -WIDTH * (LIST_ITEMS.length - 4));
+    LIST.style.marginLeft = position + 'px';
+    if (!(COUNT_OF_DAYS.length < 5)) {
+        PREV.classList.remove("unavailable");
     }
 };
